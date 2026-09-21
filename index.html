@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>蜡笔小新 · 经典片段</title>
+<meta name="description" content="打开就自动播放的蜡笔小新经典片段。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="蜡笔小新 · 经典片段">
+<meta property="og:description" content="打开就播。">
+<meta property="og:image" content="https://i1.hdslb.com/bfs/archive/17c9dfcd4206d8bd0b2ffc9d71e585dd8c9ef61e.jpg@720w_405h_1c.webp">
+<meta name="theme-color" content="#FFF9EC">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FFD23F'/%3E%3Cpath d='M10 11.5h12v9H10z' fill='none' stroke='%2317130F' stroke-width='2.6'/%3E%3Cpath d='M13.5 24l2.5-3 2.5 3' fill='none' stroke='%2317130F' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<main class="stage">
+  <div class="tv">
+    <span class="tv-offset" aria-hidden="true"></span>
+    <figure class="tv-frame">
+      <span class="tape tape-left" aria-hidden="true"></span>
+      <span class="tape tape-right" aria-hidden="true"></span>
+      <div class="tv-screen">
+        <iframe id="player" title="蜡笔小新经典片段"
+          src="https://player.bilibili.com/player.html?bvid=BV1yW42197DR&amp;autoplay=1&amp;danmaku=0&amp;high_quality=1&amp;as_wide=1&amp;hideCoverInfo=1&amp;p=1"
+          allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+          allowfullscreen scrolling="no" frameborder="0"></iframe>
+      </div>
+    </figure>
+  </div>
+
+  <p class="caption">
+    <span id="now-title">正在播放</span>
+    <a id="now-link" href="https://www.bilibili.com/video/BV1yW42197DR" target="_blank" rel="noopener noreferrer">来源 · 哔哩哔哩</a>
+  </p>
+  <p class="hint">已自动播放 · 如果没声音，点一下画面右下角的喇叭</p>
+</main>
+
+<div class="rzh" aria-hidden="true">
+  <span>rzh</span>
+  <svg viewBox="0 0 120 10" preserveAspectRatio="none">
+    <path d="M2 7C20 2 34 8 52 4s28-4 44 1 18 3 22 1" fill="none" stroke="#E8402A" stroke-width="3.6" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<script src="assets/clips.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

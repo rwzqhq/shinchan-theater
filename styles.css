@@ -1,0 +1,195 @@
+:root {
+  --paper: #fff9ec;
+  --ink: #17130f;
+  --muted: #8a7f70;
+  --sun: #ffd23f;
+  --red: #e8402a;
+  --white: #ffffff;
+  --ui: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--ui);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -10% -10% auto -10%;
+  height: 70vh;
+  background: radial-gradient(60% 70% at 50% 0%, rgba(255, 210, 63, 0.42) 0%, rgba(255, 210, 63, 0) 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  pointer-events: none;
+  opacity: 0.15;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.stage {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 28px 28px 34px;
+}
+
+.tv {
+  position: relative;
+  width: min(1180px, 100%, calc((100dvh - 190px) * 16 / 9));
+}
+
+.tv-offset {
+  position: absolute;
+  inset: 0;
+  border-radius: 26px 20px 28px 18px;
+  background: var(--sun);
+  transform: translate(11px, 13px) rotate(0.5deg);
+}
+
+.tv-frame {
+  position: relative;
+  margin: 0;
+  padding: 12px;
+  background: var(--white);
+  border: 4px solid var(--ink);
+  border-radius: 24px 18px 26px 16px;
+  box-shadow: 0 16px 34px rgba(23, 19, 15, 0.1);
+  transform: rotate(-0.2deg);
+}
+
+.tv-screen {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+
+.tv-screen iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.tape {
+  position: absolute;
+  top: -13px;
+  width: 96px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(23, 19, 15, 0.12);
+  box-shadow: 0 2px 7px rgba(23, 19, 15, 0.1);
+}
+
+.tape-left { left: 36px; transform: rotate(-4.5deg); }
+.tape-right { right: 36px; transform: rotate(4deg); }
+
+.caption {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.caption a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid rgba(23, 19, 15, 0.2);
+}
+
+.caption a:hover { color: var(--red); border-bottom-color: var(--red); }
+
+.hint {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.caption a:focus-visible {
+  outline: 3px solid #2fa8e0;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---------- corner watermark ---------- */
+
+.rzh {
+  position: fixed;
+  right: 20px;
+  bottom: 16px;
+  z-index: 10;
+  pointer-events: none;
+  user-select: none;
+  display: grid;
+  justify-items: center;
+  transform: rotate(-6deg);
+  opacity: 0.55;
+}
+
+.rzh span {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--ink);
+  text-shadow: 2px 2px 0 rgba(255, 210, 63, 0.85);
+}
+
+.rzh svg {
+  width: 100%;
+  height: 9px;
+  margin-top: 2px;
+}
+
+@media (max-width: 760px) {
+  .stage {
+    justify-content: flex-start;
+    padding: 54px 16px 26px;
+    gap: 14px;
+  }
+  .tv { width: 100%; }
+  .tv-frame { padding: 8px; border-width: 3px; border-radius: 18px 14px 20px 12px; }
+  .tv-offset { transform: translate(7px, 9px) rotate(0.6deg); }
+  .tape { width: 68px; height: 20px; top: -10px; }
+  .tape-left { left: 22px; }
+  .tape-right { right: 22px; }
+  .caption { font-size: 14px; gap: 8px; }
+  .hint { font-size: 12px; text-align: center; }
+  .rzh { right: 14px; bottom: 12px; }
+  .rzh span { font-size: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.001ms !important; }
+}
